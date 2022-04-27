@@ -4,9 +4,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author David
  * @author Alberto
- * @author Sandra
  */
 
 public class NewMain {
@@ -21,7 +19,7 @@ public class NewMain {
     }
     
     public NewMain(){
-        //Sandra inútil
+        
         System.out.println("1. JSON");
         System.out.println("2. CSV");
         System.out.println("Option: ");

@@ -10,9 +10,7 @@ package biblioteca.com.configuration;
 //Podemos trabajar con la biblioteca GSON que es de Google y que nos permitirá
 
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.FileReader; 
 
 public class PruebaJson {
     
