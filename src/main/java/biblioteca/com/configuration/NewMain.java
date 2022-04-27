@@ -44,7 +44,7 @@ public class NewMain {
                 csv.leerCSV();
                 break;
             default:
-                System.out.println("Eres tonto?");
+                System.out.println("Eres tontorrin?");
                 break;
         }
     }
