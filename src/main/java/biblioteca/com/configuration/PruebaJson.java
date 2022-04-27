@@ -1,25 +1,30 @@
 package biblioteca.com.configuration;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.*;
+
 /**
  *
- * @author David
  * @author Alberto
- * @author Sandra
  */
 
-//Podemos trabajar con la biblioteca GSON que es de Google y que nos permitirá
-
-import java.io.FileNotFoundException;
-import java.io.FileReader; 
-
-public class PruebaJson {
+public class PruebaJson { 
     
     public void leerJson(){
+        
         try {
-            //        JSONParser parser = new JSONParser();
-            FileReader reader = new FileReader("src/main/java/biblioteca/com/configuration/platos.json");
-        } catch (FileNotFoundException ex) {
+            Object ob = new JSONParser().parse(new FileReader("platos.json"));
+        } catch (IOException ex) {
             ex.printStackTrace();
+        } catch (ParseException ex) {
+            ex.printStackTrace();        
         }
+        
     }
 }
