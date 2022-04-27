@@ -21,7 +21,7 @@ public class NewMain {
     }
     
     public NewMain(){
-        
+        //Sandra
         System.out.println("1. JSON");
         System.out.println("2. CSV");
         System.out.println("Option: ");
