@@ -7,7 +7,7 @@ package biblioteca.com.configuration;
 
 public class PruebaCSV {
     
-    public void leerCSV(){
+    public void readCSV(){
         
     }
 }

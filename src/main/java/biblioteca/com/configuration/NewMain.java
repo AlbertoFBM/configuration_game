@@ -35,11 +35,11 @@ public class NewMain {
         switch (option) {
             case 1:
                 PruebaJson json = new PruebaJson();
-                json.leerJson();
+                json.readJson();
                 break;
             case 2:
                 PruebaCSV csv =new PruebaCSV();
-                csv.leerCSV();
+                csv.readCSV();
                 break;
             default:
                 System.out.println("Eres tontorrin?");
