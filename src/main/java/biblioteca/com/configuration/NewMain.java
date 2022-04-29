@@ -39,7 +39,7 @@ public class NewMain {
                 break;
             case 2:
                 PruebaCSV csv =new PruebaCSV();
-                csv.readCSV();
+                csv.chooseCSV();
                 break;
             default:
                 System.out.println("Eres tontorrin?");
