@@ -5,8 +5,6 @@ import java.util.Scanner;
 /**
  *
  * @author David
- * @author Alberto
- * @author Sandra
  */
 
 public class NewMain {
@@ -21,7 +19,6 @@ public class NewMain {
     }
     
     public NewMain(){
-        //Sandra inútil
         System.out.println("1. JSON");
         System.out.println("2. CSV");
         System.out.println("Option: ");
@@ -44,7 +41,7 @@ public class NewMain {
                 csv.leerCSV();
                 break;
             default:
-                System.out.println("Eres tontorrin?");
+                System.out.println("Elige entre 1 o 2.");
                 break;
         }
     }
