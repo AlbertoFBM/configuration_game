@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 public class PruebaCSV {
     //https://www.campusmvp.es/recursos/post/como-leer-y-escribir-archivos-csv-con-java.aspx
     public void leerCSV(){
-        String archCSV = "C:\\Users\\David\\Desktop\\Damage.csv";;
+        String archCSV = "C:\\Users\\David\\Desktop\\Damage.csv";
         try {
             CSVReader csvReader = new CSVReader ( new FileReader(archCSV));
             String []fila = null;
