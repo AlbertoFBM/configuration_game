@@ -7,21 +7,22 @@ package biblioteca.com.configuration;
  * @author Sandra
  */
 
-//Podemos trabajar con la biblioteca GSON que es de Google y que nos permitirá
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
+import java.io.IOException;
 
 public class PruebaJson {
-    
+
     public void leerJson(){
+        // creamos objecto para mapearlo
+        ObjectMapper mapper = new ObjectMapper();
         try {
-            //        JSONParser parser = new JSONParser();
-            FileReader reader = new FileReader("src/main/java/biblioteca/com/configuration/platos.json");
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
+            Plato plato = mapper.readValue(new File("D:\\DAM2\\config\\platos.json"), Plato.class);
+            System.out.println(plato);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
