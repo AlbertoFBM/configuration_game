@@ -21,10 +21,10 @@ public class PruebaCSV {
             CSVReader csvReader = new CSVReader ( new FileReader(archCSV));
             String []fila = null;
             while ((fila = csvReader.readNext())!= null){
-                System.out.println(fila[0]+" | " +
-                        fila[1]+" | "+
-                        fila[2]+" | "+
-                        fila[3]+" |");
+                System.out.println(fila[0]+" , " +
+                        fila[1]+" , "+
+                        fila[2]+" , "+
+                        fila[3]+" ");
             };
         } catch (FileNotFoundException ex) {
             Logger.getLogger(PruebaCSV.class.getName()).log(Level.SEVERE, null, ex);

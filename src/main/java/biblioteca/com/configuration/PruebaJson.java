@@ -12,10 +12,12 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class PruebaJson {
+    private final Scanner scanner = new Scanner(System.in);
     
     public void leerJson(){
         String json = "";
@@ -36,5 +38,28 @@ public class PruebaJson {
         Gson gson = new Gson();
         Plato p = gson.fromJson(json, Plato.class);
         System.out.println(p);
+    }
+    
+    public void escribirJSON(){
+        
+        Player player1 = new Player();
+        System.out.println("Id del jugador: ");
+        int x = scanner.nextInt();
+        scanner.nextLine();
+        player1.setId(x);
+        
+        System.out.println("Nombre del jugador: ");
+        String name = scanner.next();
+        player1.setNombre(name);
+        
+        System.out.println("Puntuación del jugador: ");
+        int y = scanner.nextInt();
+        player1.setPuntiacion(y);
+        
+        //Convertir el jugador a JSON:
+        
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(player1);
+        System.out.println(jsonString);
     }
 }
