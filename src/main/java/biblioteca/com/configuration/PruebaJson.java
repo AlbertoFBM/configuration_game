@@ -8,10 +8,13 @@ package biblioteca.com.configuration;
 //Trabajamos con la biblioteca GSON que es de Google y que nos permitirá serializar archivos JSON de una manera sencilla.
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -58,8 +61,16 @@ public class PruebaJson {
         
         //Convertir el jugador a JSON:
         
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String jsonString = gson.toJson(player1);
         System.out.println(jsonString);
+        
+        //Guardar JSON en un fichero
+        try (PrintWriter pw = new PrintWriter(new File("C:\\Users\\David\\Desktop\\PruebaGitKraken\\Configuration\\src\\main\\java\\biblioteca\\com\\configuration\\Player.json"))){
+            pw.write(jsonString);
+            pw.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 }
