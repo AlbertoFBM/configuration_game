@@ -10,6 +10,13 @@ public class Plato {
 
     }
 
+    public Plato(String nombre, int precio, int duracion, String tipo) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.duracion = duracion;
+        this.tipo = tipo;
+    }
+
     public String getNombre() {
         return nombre;
     }
