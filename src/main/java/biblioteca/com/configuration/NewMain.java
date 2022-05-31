@@ -78,7 +78,7 @@ public class NewMain {
                 break;
             case 2:
                 PruebaCSV csvWrite = new PruebaCSV();
-//                csvWrite.escribirCSV();
+                csvWrite.escribirCSV();
                 break;
             default:
                 System.out.println("Elige entre 1 o 2.");
