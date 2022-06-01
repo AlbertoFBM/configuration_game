@@ -35,7 +35,11 @@ public class NewMain {
         switch (option) {
             case 1:
                 PruebaJson json = new PruebaJson();
-                json.readJson();
+                System.out.println("1. Leer JSON");
+                System.out.println("2. Escribir JSON");
+                int num = scanner.nextInt();
+                scanner.nextLine();
+                json.chooseOption(num);
                 break;
             case 2:
                 PruebaCSV csv =new PruebaCSV();

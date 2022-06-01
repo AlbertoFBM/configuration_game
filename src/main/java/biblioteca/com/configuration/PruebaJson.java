@@ -1,7 +1,10 @@
 package biblioteca.com.configuration;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
@@ -11,6 +14,21 @@ import org.json.simple.parser.*;
  * @author Alberto
  */
 public class PruebaJson {
+
+    private final Scanner scanner = new Scanner(System.in);
+
+    public void chooseOption(int option){
+        switch(option){
+            case 1: 
+                readJson();
+                break;
+            case 2:
+                writeJson();
+                break;
+            default:
+                System.out.println("Escribe una opción correcta");
+        }
+    }
 
     public void readJson() {
 
@@ -23,6 +41,9 @@ public class PruebaJson {
             Object object = parser.parse(new FileReader("platos.json"));
 
             JSONObject config = (JSONObject) object;
+
+            String pepito = (String) config.get("pepito");
+            System.out.println(pepito);
 
             String verb = (String) config.get("verb");
             System.out.println(verb);
@@ -57,31 +78,57 @@ public class PruebaJson {
                 
             }
         } catch (Exception e) {
-            System.out.println("Excepcion leyendo fichero de configuracion " + e);
+            System.out.println("Excepcion leyendo fichero de configuracion ");
+            e.printStackTrace();
+        }
+    }
+
+    public void writeJson(){
+    
+
+        JSONObject json = new JSONObject();
+        json.put("pepito", "grillo");
+        json.put("verb", "HTTPPUTA");
+        json.put("host", "11111");
+        json.put("port", "8001");
+        json.put("method", "API/PROJECTS");
+
+        JSONObject iJsonObject = new JSONObject();
+        iJsonObject.put("nombre", "Pepito");
+        iJsonObject.put("precio", 2000);
+        iJsonObject.put("duracion", 8);
+        iJsonObject.put("tamano", "medio");
+
+
+        JSONArray list = new JSONArray();
+        list.add(iJsonObject);
+        json.put("PlatoFuerte", list);
+
+        try {
+            // Para sobreescribir el fichero hay que añadir 'true' como segundo parámetro.
+            FileWriter file = new FileWriter("platos.json");
+            file.write(json.toJSONString());
+            file.flush();
+            file.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-//        try(FileReader reader = new FileReader("platos.json")){
-//            
-//            Object obj = new JSONParser().parse(reader);
-//            
-//            JSONObject js = (JSONObject) obj;
-//            
-//            System.out.println("El archivo contiene el siguiente JSON: ");
-//            System.out.println(obj);
-//            System.out.println(js);
-//
-//            JSONArray arr = (JSONArray) js.get("PlatoFuerte");  
-//            
-//            for(int i =0; i<arr.size(); i++){
-//                
-//                JSONObject elemento = (JSONObject) arr.get(i);
-//                String nombre = elemento.toString();
-//                System.out.println(nombre);
-//                
-//            }  
-//
-//        }catch(IOException | ParseException ex){
-//            ex.printStackTrace();
-//        }
+        System.out.println("Se ha sobreescrito el archivo JSON");
+        System.out.println("Se ha escrito: " + json);
+
+        System.out.println("\n Te gustaría leer el JSON? \n");
+        int yesNo = scanner.nextInt();
+
+        switch(yesNo){
+            case 1:
+                readJson();
+                break;
+            case 2:
+                break;
+            default:
+                break;
+        }
     }
 }
